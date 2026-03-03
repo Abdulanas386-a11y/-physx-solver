@@ -798,11 +798,12 @@ Solve step-by-step in simple language. Respond ONLY with valid JSON:
 Max 6 steps. Show all substitutions.`;
 
   const data = await apiJSON(sys, ctx + 'Problem: ' + problem);
-  Session.record('numerical', problem, data.subject, data.topic, 'solved');
+  Session.record('numerical', problem,subject, data.topic, 'solved');
   renderNumerical(data, problem);
 }
 
 function renderNumerical(d, problem) {
+  const subject =d.subject||d.topic||"general";
   const tc = subjectTagClass(d.subject);
   const ti = subjectTagIcon(d.subject);
   const stepsHTML = (d.steps||[]).map((s,i) => `
