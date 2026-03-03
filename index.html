@@ -1230,8 +1230,7 @@ async function apiJSON(system, userMsg) {
     throw new Error(err.error || `Server error ${response.status}`);
   }
   const data = await response.json();
-  if (data._raw) throw new Error("AI returned unexpected format. Try again.");
-  return data;
+  return data.text;
 }
 
 // ════════════════════════════════════════════════
