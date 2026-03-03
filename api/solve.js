@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const { system, userMsg } = req.body;
   if (!system || !userMsg) return res.status(400).json({ error: "Missing fields" });
 
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.API_KEY;
   if (!apiKey) return res.status(500).json({ error: "API key not set on server" });
 
   try {
@@ -34,3 +34,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: err.message });
   }
 }
+
