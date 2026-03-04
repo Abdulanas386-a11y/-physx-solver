@@ -1,7 +1,1 @@
-{
-  "functions": {
-    "api/solve.js": {
-      "runtime": "edge"
-    }
-  }
-}
+{}
