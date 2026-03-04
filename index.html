@@ -798,9 +798,11 @@ Solve step-by-step in simple language. Respond ONLY with valid JSON:
 Max 6 steps. Show all substitutions.`;
 
   const data = await apiJSON(sys, ctx + 'Problem: ' + problem);
+  console.log("API RESPONES:",DATA);
   const subject =data?.subject||data?.topic||"general";
-  Session.record('numerical', problem,subject, data.topic, 'solved');
-  renderNumerical(data, problem);
+  Session.record('numerical', problem,subject, data?.topic||"general", 'solved');
+  if(data){
+   renderNumerical(data, problem);
 }
 
 function renderNumerical(d, problem) {
