@@ -1,8 +1,7 @@
 {
   "functions": {
-    "api/*.js": {
-      "runtime": "nodejs.x"
+    "api/chat.js": {
+      "runtime": "edge"
     }
   }
 }
-
